@@ -1,0 +1,57 @@
+CredentialsService:
+    Db:
+        LogsConnString:
+            settings-key: CredentialsService-LogsConnString
+            types:
+              - AzureTableStorage
+        DataConnString:
+            settings-key: CredentialsService-DataConnString
+            types: 
+              - AzureTableStorage
+    Redis:
+        ConnString:
+            settings-key: CredentialsService-Redis-ConnString
+            types:
+            - Redis
+        InstanceName:
+            settings-key: CredentialsService-Redis-InstanceName
+    LimitationSettings:
+        MaxAllowedRequestsNumber:
+            settings-key: CredentialsService-Max-Allowed-Requests
+        MonitoredPeriod:
+            settings-key: CredentialsService-Monitored-Period
+    IdentifierTimeSpan:
+            settings-key: CredentialsService-Password-Reset-Identifier-TimeSpan
+    ResetIdentifierLength:
+            settings-key: CredentialsService-Password-Reset-Identifier-Size
+    PinCodeLength:
+            settings-key: PinCodeLength
+    PasswordValidationSettings:
+        MinLength:
+            settings-key: PasswordValidation-MinLength
+        MaxLength:
+            settings-key: PasswordValidation-MaxLength
+        MinUpperCase:
+            settings-key: PasswordValidation-MinUpperCase
+        MinLowerCase:
+            settings-key: PasswordValidation-MinLowerCase
+        MinSpecialSymbols:
+            settings-key: PasswordValidation-MinSpecialSymbols
+        MinNumbers:
+            settings-key: PasswordValidation-MinNumbers
+        AllowedSpecialSymbols:
+            settings-key: PasswordValidation-AllowedSpecialSymbols
+        AllowWhiteSpaces:
+            settings-key: PasswordValidation-AllowWhiteSpaces
+SlackNotifications:
+    AzureQueue:
+        ConnectionString:
+            settings-key: SlackNotificationsConnString
+            types:
+                - AzureTableStorage
+        QueueName:
+            settings-key: SlackQueueName
+MonitoringServiceClient:
+    MonitoringServiceUrl:
+        settings-key: MonitoringServiceUrl
+
