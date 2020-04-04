@@ -22,7 +22,7 @@ namespace MAVN.Service.Credentials.MsSqlRepositories.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Lykke.Service.Credentials.MsSqlRepositories.Entities.AdminCredentialsEntity", b =>
+            modelBuilder.Entity("MAVN.Service.Credentials.MsSqlRepositories.Entities.AdminCredentialsEntity", b =>
                 {
                     b.Property<string>("Login")
                         .ValueGeneratedOnAdd()
@@ -45,7 +45,7 @@ namespace MAVN.Service.Credentials.MsSqlRepositories.Migrations
                     b.ToTable("admin_credentials");
                 });
 
-            modelBuilder.Entity("Lykke.Service.Credentials.MsSqlRepositories.Entities.CustomerCredentialsEntity", b =>
+            modelBuilder.Entity("MAVN.Service.Credentials.MsSqlRepositories.Entities.CustomerCredentialsEntity", b =>
                 {
                     b.Property<string>("Login")
                         .ValueGeneratedOnAdd()
@@ -68,7 +68,7 @@ namespace MAVN.Service.Credentials.MsSqlRepositories.Migrations
                     b.ToTable("customer_credentials");
                 });
 
-            modelBuilder.Entity("Lykke.Service.Credentials.MsSqlRepositories.Entities.PartnerCredentialsEntity", b =>
+            modelBuilder.Entity("MAVN.Service.Credentials.MsSqlRepositories.Entities.PartnerCredentialsEntity", b =>
                 {
                     b.Property<string>("PartnerId")
                         .ValueGeneratedOnAdd()
@@ -95,7 +95,7 @@ namespace MAVN.Service.Credentials.MsSqlRepositories.Migrations
                     b.ToTable("partner_credentials");
                 });
 
-            modelBuilder.Entity("Lykke.Service.Credentials.MsSqlRepositories.Entities.PasswordResetEntity", b =>
+            modelBuilder.Entity("MAVN.Service.Credentials.MsSqlRepositories.Entities.PasswordResetEntity", b =>
                 {
                     b.Property<string>("CustomerId")
                         .ValueGeneratedOnAdd()
@@ -116,7 +116,7 @@ namespace MAVN.Service.Credentials.MsSqlRepositories.Migrations
                     b.ToTable("password_reset");
                 });
 
-            modelBuilder.Entity("Lykke.Service.Credentials.MsSqlRepositories.Entities.PinCodeEntity", b =>
+            modelBuilder.Entity("MAVN.Service.Credentials.MsSqlRepositories.Entities.PinCodeEntity", b =>
                 {
                     b.Property<string>("CustomerId")
                         .HasColumnName("customer_id");
@@ -134,12 +134,12 @@ namespace MAVN.Service.Credentials.MsSqlRepositories.Migrations
                     b.ToTable("customer_pin_codes");
                 });
 
-            modelBuilder.Entity("Lykke.Service.Credentials.MsSqlRepositories.Entities.PinCodeEntity", b =>
+            modelBuilder.Entity("MAVN.Service.Credentials.MsSqlRepositories.Entities.PinCodeEntity", b =>
                 {
-                    b.HasOne("Lykke.Service.Credentials.MsSqlRepositories.Entities.CustomerCredentialsEntity")
+                    b.HasOne("MAVN.Service.Credentials.MsSqlRepositories.Entities.CustomerCredentialsEntity")
                         .WithOne("PinCode")
-                        .HasForeignKey("Lykke.Service.Credentials.MsSqlRepositories.Entities.PinCodeEntity", "CustomerId")
-                        .HasPrincipalKey("Lykke.Service.Credentials.MsSqlRepositories.Entities.CustomerCredentialsEntity", "CustomerId")
+                        .HasForeignKey("MAVN.Service.Credentials.MsSqlRepositories.Entities.PinCodeEntity", "CustomerId")
+                        .HasPrincipalKey("MAVN.Service.Credentials.MsSqlRepositories.Entities.CustomerCredentialsEntity", "CustomerId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

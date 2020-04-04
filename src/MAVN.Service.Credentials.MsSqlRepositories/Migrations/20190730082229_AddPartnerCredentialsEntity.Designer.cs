@@ -22,7 +22,7 @@ namespace MAVN.Service.Credentials.MsSqlRepositories.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Lykke.Service.Credentials.MsSqlRepositories.Entities.CustomerCredentialsEntity", b =>
+            modelBuilder.Entity("MAVN.Service.Credentials.MsSqlRepositories.Entities.CustomerCredentialsEntity", b =>
                 {
                     b.Property<string>("Login")
                         .ValueGeneratedOnAdd()
@@ -45,7 +45,7 @@ namespace MAVN.Service.Credentials.MsSqlRepositories.Migrations
                     b.ToTable("customer_credentials");
                 });
 
-            modelBuilder.Entity("Lykke.Service.Credentials.MsSqlRepositories.Entities.PartnerCredentialsEntity", b =>
+            modelBuilder.Entity("MAVN.Service.Credentials.MsSqlRepositories.Entities.PartnerCredentialsEntity", b =>
                 {
                     b.Property<string>("ClientId")
                         .ValueGeneratedOnAdd()
@@ -64,7 +64,7 @@ namespace MAVN.Service.Credentials.MsSqlRepositories.Migrations
                     b.ToTable("partner_credentials");
                 });
 
-            modelBuilder.Entity("Lykke.Service.Credentials.MsSqlRepositories.Entities.PasswordResetEntity", b =>
+            modelBuilder.Entity("MAVN.Service.Credentials.MsSqlRepositories.Entities.PasswordResetEntity", b =>
                 {
                     b.Property<string>("CustomerId")
                         .ValueGeneratedOnAdd()
