@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using AutoMapper;
-using Falcon.Common;
-using Lykke.Common.MsSql;
+using MAVN.Common;
+using MAVN.Common.MsSql;
 using MAVN.Service.Credentials.Domain.Models;
 using MAVN.Service.Credentials.Domain.Repositories;
 using MAVN.Service.Credentials.MsSqlRepositories.Contexts;

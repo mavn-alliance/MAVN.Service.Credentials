@@ -1,6 +1,6 @@
 using System.Data.Common;
 using JetBrains.Annotations;
-using Lykke.Common.MsSql;
+using MAVN.Common.MsSql;
 using MAVN.Service.Credentials.MsSqlRepositories.Entities;
 using MAVN.Service.Credentials.MsSqlRepositories.EntityConfigurations;
 using Microsoft.EntityFrameworkCore;
