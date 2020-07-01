@@ -1,4 +1,4 @@
-using MAVN.Service.Credentials.MsSqlRepositories.Entities;
+﻿using MAVN.Service.Credentials.MsSqlRepositories.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -8,8 +8,6 @@ namespace MAVN.Service.Credentials.MsSqlRepositories.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<PartnerCredentialsEntity> builder)
         {
-            builder.Property(x => x.PartnerId).HasDefaultValueSql("newid()");
-
             builder.HasIndex(x => x.PartnerId).IsUnique(true);
         }
     }

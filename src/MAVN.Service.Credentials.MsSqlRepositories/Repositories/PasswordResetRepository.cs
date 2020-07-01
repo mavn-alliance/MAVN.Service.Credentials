@@ -1,22 +1,21 @@
-using System;
+﻿using System;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
-using MAVN.Common.MsSql;
+using MAVN.Persistence.PostgreSQL.Legacy;
 using MAVN.Service.Credentials.Domain.Models;
 using MAVN.Service.Credentials.Domain.Repositories;
 using MAVN.Service.Credentials.MsSqlRepositories.Contexts;
 using MAVN.Service.Credentials.MsSqlRepositories.Entities;
 using Microsoft.EntityFrameworkCore;
+using Npgsql;
 
 namespace MAVN.Service.Credentials.MsSqlRepositories.Repositories
 {
     public class PasswordResetRepository : IPasswordResetRepository
     {
-        private readonly MsSqlContextFactory<CredentialsContext> _contextFactory;
+        private readonly PostgreSQLContextFactory<CredentialsContext> _contextFactory;
         
-        private const int PrimaryKeyViolationErrorCode = 2627;
-        
-        public PasswordResetRepository(MsSqlContextFactory<CredentialsContext> contextFactory)
+        public PasswordResetRepository(PostgreSQLContextFactory<CredentialsContext> contextFactory)
         {
             _contextFactory = contextFactory;
         }
@@ -35,8 +34,8 @@ namespace MAVN.Service.Credentials.MsSqlRepositories.Repositories
                 }
                 catch (DbUpdateException e)
                 {
-                    if (e.InnerException is SqlException sqlException && sqlException.Number ==
-                        PrimaryKeyViolationErrorCode)
+                    if (e.InnerException is PostgresException sqlException && 
+                        sqlException.SqlState == PostgresErrorCodes.UniqueViolation)
                     {
                         context.PasswordReset.Update(entity);
 
