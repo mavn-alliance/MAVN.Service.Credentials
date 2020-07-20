@@ -1,8 +1,8 @@
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using MAVN.Common;
-using MAVN.Common.MsSql;
+using MAVN.Persistence.PostgreSQL.Legacy;
 using MAVN.Service.Credentials.Domain.Models;
 using MAVN.Service.Credentials.Domain.Repositories;
 using MAVN.Service.Credentials.MsSqlRepositories.Contexts;
@@ -12,12 +12,12 @@ namespace MAVN.Service.Credentials.MsSqlRepositories.Repositories
 {
     public class AdminCredentialsRepository : IAdminCredentialsRepository
     {
-        private readonly MsSqlContextFactory<CredentialsContext> _contextFactory;
+        private readonly PostgreSQLContextFactory<CredentialsContext> _contextFactory;
         private readonly IMapper _mapper;
         private readonly Sha256HashingUtil _hashingHelper;
 
         public AdminCredentialsRepository(
-            MsSqlContextFactory<CredentialsContext> contextFactory,
+            PostgreSQLContextFactory<CredentialsContext> contextFactory,
             IMapper mapper,
             Sha256HashingUtil hashingHelper)
         {

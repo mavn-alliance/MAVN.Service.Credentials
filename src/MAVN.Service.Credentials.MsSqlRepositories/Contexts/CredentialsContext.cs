@@ -1,13 +1,13 @@
-using System.Data.Common;
+﻿using System.Data.Common;
 using JetBrains.Annotations;
-using MAVN.Common.MsSql;
+using MAVN.Persistence.PostgreSQL.Legacy;
 using MAVN.Service.Credentials.MsSqlRepositories.Entities;
 using MAVN.Service.Credentials.MsSqlRepositories.EntityConfigurations;
 using Microsoft.EntityFrameworkCore;
 
 namespace MAVN.Service.Credentials.MsSqlRepositories.Contexts
 {
-    public class CredentialsContext : MsSqlContext
+    public class CredentialsContext : PostgreSQLContext
     {
         private const string Schema = "credentials";
 
@@ -35,7 +35,7 @@ namespace MAVN.Service.Credentials.MsSqlRepositories.Contexts
         {
         }
 
-        protected override void OnLykkeModelCreating(ModelBuilder modelBuilder)
+        protected override void OnMAVNModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new PartnerCredentialsConfiguration());
 
@@ -44,6 +44,9 @@ namespace MAVN.Service.Credentials.MsSqlRepositories.Contexts
                 .WithOne()
                 .HasForeignKey<PinCodeEntity>(p => p.CustomerId)
                 .HasPrincipalKey<CustomerCredentialsEntity>(c => c.CustomerId);
+
+            modelBuilder.Entity<PinCodeEntity>()
+                .Ignore(x => x.PinCode);
         }
     }
 }

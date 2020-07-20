@@ -1,11 +1,11 @@
-using Autofac;
+﻿using Autofac;
 using JetBrains.Annotations;
-using MAVN.Common.MsSql;
 using MAVN.Service.Credentials.MsSqlRepositories.Repositories;
 using MAVN.Service.Credentials.Domain.Repositories;
 using MAVN.Service.Credentials.MsSqlRepositories.Contexts;
 using MAVN.Service.Credentials.Settings;
 using Lykke.SettingsReader;
+using MAVN.Persistence.PostgreSQL.Legacy;
 
 namespace MAVN.Service.Credentials.Modules
 {
@@ -21,7 +21,7 @@ namespace MAVN.Service.Credentials.Modules
 
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterMsSql(
+            builder.RegisterPostgreSQL(
                 _settings.DataConnString,
                 connString => new CredentialsContext(connString, false),
                 dbConn => new CredentialsContext(dbConn));
